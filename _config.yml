@@ -5,4 +5,4 @@ plugins:
 title: [test tiltle]
 description: [这里写网站说明]
 
-show_downloads: ["true"]
+show_downloads: ["false"]
