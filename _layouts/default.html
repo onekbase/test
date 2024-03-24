@@ -14,28 +14,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     {% include head-custom.html %}
+
+    <style>
+        header {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            display: block;
+            width: 100%;
+            z-index: 999;
+        }
+        #global-nav {
+            background: repeat-x 0px bottom rgb(27, 27, 27);
+        }
+
+        #global-nav nav {
+            height: 34px;
+            padding: 0px 20px;
+        }
+
+        #global-nav nav ul {
+            list-style: none;
+            margin: 0px;
+            text-align: left;
+            border-right-color: rgba(255, 255, 255, 0.097656);
+            border-left-color: rgba(0, 0, 0, 0.347656);
+            border-right-width: 1px;
+            border-left-width: 1px;
+            border-right-style: solid;
+            border-left-style: solid;
+            float: left;
+            display: inline;
+            padding: 0px;
+        }
+
+        #global-nav nav ul.links {
+            float: right;
+        }
+
+        #global-nav nav ul li {
+            font: bold 13px/17px "Helvetica Neue", Helvetica, Arial, Geneva,
+                sans-serif;
+            transition: 0.2s;
+            top: 1px;
+            border-right-color: rgba(0, 0, 0, 0.347656);
+            border-left-color: rgba(255, 255, 255, 0.097656);
+            border-right-width: 1px;
+            border-left-width: 1px;
+            border-right-style: solid;
+            border-left-style: solid;
+            float: left;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            font-size-adjust: none;
+            font-stretch: normal;
+            text-shadow: 0px 0px 2px #000;
+            -webkit-transition: all 0.2s;
+        }
+
+        #global-nav nav ul li:hover {
+            background: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+        }
+
+        #global-nav nav ul li i {
+            height: 1em;
+        }
+
+        #global-nav nav ul li a {
+            padding: 8px 12px;
+            color: rgb(230, 230, 230);
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+            display: block;
+        }
+
+        #global-nav nav ul li ul {
+            padding: 0px;
+            transition: opacity 0.2s;
+            left: -2px;
+            top: 32px;
+            width: 120px;
+            display: none;
+            visibility: hidden;
+            position: absolute;
+            z-index: 400;
+            opacity: 0;
+            box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.4);
+            -webkit-box-shadow: 0 43px 5px rgba(0, 0, 0, 0.4);
+            -webkit-transiton: opacity 0.2s;
+        }
+
+        #global-nav nav ul li ul.wide {
+            width: 260px;
+        }
+
+        #global-nav nav ul li ul li {
+            background: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            float: none;
+            display: block;
+        }
+
+        #global-nav nav ul li ul li:hover {
+            background: rgb(0, 0, 0);
+        }
+
+        #global-nav nav ul li:hover ul {
+            display: block;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #global-nav nav ul.projects li.project {
+            padding: 0px;
+            width: 42px;
+            height: 33px;
+            text-indent: -9999px;
+            z-index: 10;
+        }
+
+        #global-nav nav ul.projects li.project a {
+            height: 33px;
+            display: block;
+        }
+    </style>
   </head>
   <body>
 
-      <header style="position: relative;">
+      <!-- <header style="position: relative;">
         <h1>{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
         <p>{{ page.description | default: site.description | default: site.github.project_tagline }}</p>
-      </header>
+      </header> -->
 
-      <!-- <div id="banner">
-        <span id="logo"></span>
-
-        <a href="{{ site.github.repository_url }}" class="button fork"><strong>View On GitHub</strong></a>
-        {% if site.show_downloads %}
-          <div class="downloads">
-            <span>Downloads:</span>
-            <ul>
-              <li><a href="{{ site.github.zip_url }}" class="button">ZIP</a></li>
-              <li><a href="{{ site.github.tar_url }}" class="button">TAR</a></li>
+      <!-- topmenu-start -->
+<header>
+    <section id="global-nav">
+        <nav>
+            <ul class="projects">
+                    <li><a href="/">ITeedu.com</a></li>
             </ul>
-          </div>
-        {% endif %}
-      </div> -->
+            <ul class="links">
+                    <li><a>快捷导航</a>
+                        <ul>
+                            <li><a href="/plang/">编程语言</a></li>
+                            <li><a href="/webtech/">WEB开发</a></li>
+                            <li><a href="/handset/">手机开发</a></li>
+                            <li><a href="/database/">数据库</a></li>
+                            <li><a href="/os/">操作系统</a></li>
+                            <li><a href="/embed/">嵌入式</a></li>
+                            <li><a href="/opensource/">开源软件</a></li>
+                            <li><a href="/works/">作品</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="/plang/asm/">编辑语言</a>
+                        <ul>
+                                <li><a href="/plang/asm/">汇编</a></li>
+                                <li><a href="/plang/ccpp/">C/C++</a> </li>
+                                <li><a href="/plang/java/">JAVA</a> </li>
+                                <li><a href="/plang/python/">Python</a> </li>
+                                <li><a href="/plang/ruby/">Ruby</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/webtech/">WEB开发</a>
+                        <ul>
+                            <li><a href="/webtech/javascript/">javascript</a> </li>
+                            <li><a href="/webtech/j2ee/">J2EE</a> </li>
+                            <li><a href="/webtech/php/">PHP</a> </li>
+                            <li><a href="/webtech/python/djangocn2/">Django</a> </li>
+                        </ul>
+                    </li>
+					<li><a href="/me/contactme.htm">关于</a></li>
+            </ul>
+        </nav>
+    </section>
+</header>
+<!-- topmenu-end -->
+
 
     <div class="wrapper">
       <nav>
